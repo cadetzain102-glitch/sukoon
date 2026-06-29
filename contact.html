@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact • Sukoon e Pakistan</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ============================================
+               CSS RESET & BASE (Dark Theme)
+            ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a84c;
+            --accent-glow: rgba(201, 168, 76, 0.3);
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --text-light: #f4f1ea;
+            --text-muted: #aaaaaa;
+            --border-gold: rgba(201, 168, 76, 0.3);
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --error: #e74c3c;
+            --success: #2ecc71;
+            --discord: #5865F2;
+            --discord-hover: #4752c4;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section-padding {
+            padding: 90px 0 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 6px;
+            opacity: 0.4;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+        }
+        .btn-gold:hover {
+            background: #dbb95c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-discord {
+            background: var(--discord);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
+        }
+        .btn-discord:hover {
+            background: var(--discord-hover);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(88, 101, 242, 0.5);
+        }
+
+        .btn-sm {
+            display: inline-block;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-sm-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+        }
+        .btn-sm-gold:hover {
+            background: #dbb95c;
+            transform: translateY(-2px);
+        }
+
+        .btn-sm-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-sm-outline:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+               HEADER
+            ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 18px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .logo-text .gold {
+            color: var(--gold);
+        }
+        .logo-text small {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: var(--transition);
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 60%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-light);
+        }
+
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ============================================
+               PAGE BANNER
+            ============================================ */
+        .page-banner {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at 30% 20%, #1a2a1a 0%, #0a0a0a 70%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+            animation: heroGlow 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(5%, -5%) scale(1.1);
+            }
+            100% {
+                transform: translate(-3%, 3%) scale(0.95);
+            }
+        }
+
+        .page-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-banner .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .page-banner .breadcrumb .gold {
+            color: var(--gold);
+        }
+
+        .page-banner h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        .page-banner h1 .gold {
+            color: var(--gold);
+        }
+        .page-banner p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ============================================
+               CONTACT METHODS GRID
+            ============================================ */
+        .contact-methods {
+            padding: 60px 0 40px;
+            background: #0a0a0a;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px 28px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-card .icon {
+            font-size: 3.2rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .contact-card .icon.discord-icon {
+            color: var(--discord);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card .btn-sm {
+            display: inline-block;
+        }
+
+        .contact-card .btn-sm-discord {
+            background: var(--discord);
+            color: #fff;
+        }
+        .contact-card .btn-sm-discord:hover {
+            background: var(--discord-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+               CONTACT FORM SECTION
+            ============================================ */
+        .form-section {
+            padding: 50px 0 80px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 50px 45px;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
+        }
+
+        .form-wrapper .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-wrapper .form-header .icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-wrapper .form-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .form-wrapper .form-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+
+        .form-group label .required {
+            color: var(--error);
+            margin-left: 2px;
+        }
+
+        .form-group label i {
+            color: var(--gold);
+            width: 18px;
+            margin-right: 4px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            background: rgba(26, 26, 26, 0.8);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+            background: rgba(26, 26, 26, 1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 50px;
+            border: none;
+            background: var(--gold);
+            color: #0a0a0a;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: #dbb95c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .submit-btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(10, 10, 10, 0.2);
+            border-top-color: #0a0a0a;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .submit-btn.loading .spinner {
+            display: inline-block;
+        }
+        .submit-btn.loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .message-alert {
+            margin-top: 20px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            display: none;
+            font-weight: 500;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .message-alert.show {
+            display: flex;
+        }
+
+        .message-alert.success {
+            background: rgba(46, 204, 113, 0.12);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            color: var(--success);
+        }
+
+        .message-alert.error {
+            background: rgba(231, 76, 60, 0.12);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            color: var(--error);
+        }
+
+        .message-alert i {
+            font-size: 1.2rem;
+        }
+        .message-alert .msg-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        .message-alert .msg-close:hover {
+            opacity: 1;
+        }
+
+        /* ============================================
+               FAQ SECTION
+            ============================================ */
+        .faq-section {
+            padding: 80px 0;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 25px 28px;
+            border: 1px solid rgba(201, 168, 76, 0.04);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(201, 168, 76, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-item .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            gap: 15px;
+        }
+
+        .faq-item .faq-question i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-top: 12px;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ============================================
+               PARTNERSHIP / STAFF INFO
+            ============================================ */
+        .info-section {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px 28px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 168, 76, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card .icon {
+            font-size: 2.8rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .info-card .btn-sm {
+            margin-top: 12px;
+        }
+
+        /* ============================================
+               QUICK LINKS / SOCIAL
+            ============================================ */
+        .social-section {
+            padding: 60px 0;
+            background: #0a0a0a;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            border-color: var(--gold);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        .social-link.discord:hover {
+            background: var(--discord);
+            border-color: var(--discord);
+            box-shadow: 0 8px 30px rgba(88, 101, 242, 0.3);
+            color: #fff;
+        }
+
+        /* ============================================
+               FOOTER
+            ============================================ */
+        footer {
+            background: #060606;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        footer .footer-brand h3 .gold {
+            color: var(--gold);
+        }
+        footer .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 8px 0 15px;
+            max-width: 300px;
+        }
+
+        footer .footer-brand .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        footer .footer-brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        footer .footer-brand .social-icons a:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        footer .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        footer .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        footer .footer-links ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        footer .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-bottom .heart {
+            color: var(--gold);
+        }
+
+        /* ============================================
+               RESPONSIVE
+            ============================================ */
+        @media (max-width: 992px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 4px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                display: block;
+                padding: 10px 16px;
+                text-align: center;
+            }
+
+            .page-banner h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .form-wrapper {
+                padding: 30px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-wrapper {
+                padding: 20px 16px;
+            }
+            .form-wrapper .form-header h2 {
+                font-size: 1.4rem;
+            }
+            .submit-btn {
+                font-size: 0.95rem;
+                padding: 14px;
+            }
+            .faq-item {
+                padding: 18px 16px;
+            }
+            .faq-item .faq-question {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-star-and-crescent"></i></span>
+                <div class="logo-text">
+                    SUKOON <span class="gold">PAKISTAN</span>
+                    <small>Peace · Unity · Brotherhood</small>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+    PAGE BANNER
+    ============================================ -->
+    <section class="page-banner">
+        <div class="container">
+            <p class="breadcrumb"><span class="gold"><i class="fas fa-home"></i></span> / Contact</p>
+            <h1>Get in <span class="gold">Touch</span></h1>
+            <p>We'd love to hear from you — reach out through any of the channels below.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CONTACT METHODS
+    ============================================ -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Discord -->
+                <div class="contact-card">
+                    <span class="icon discord-icon"><i class="fab fa-discord"></i></span>
+                    <h3>Join Our Discord</h3>
+                    <p>Come chat, game, and vibe with the community. We're always active!</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-discord">
+                        <i class="fab fa-discord"></i> Join Server
+                    </a>
+                </div>
+
+                <!-- Ticket System -->
+                <div class="contact-card">
+                    <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+                    <h3>Open a Ticket</h3>
+                    <p>For complaints, partnerships, or staff applications — use our ticket system.</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-gold">
+                        <i class="fas fa-ticket"></i> Open Ticket
+                    </a>
+                </div>
+
+                <!-- Staff Application -->
+                <div class="contact-card">
+                    <span class="icon"><i class="fas fa-user-tie"></i></span>
+                    <h3>Staff Applications</h3>
+                    <p>We're looking for active, mature, and loyal members to join our team.</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-outline">
+                        <i class="fas fa-user-check"></i> Apply Now
+                    </a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <h3>Email Us</h3>
+                    <p>For general inquiries — we'll get back to you as soon as possible.</p>
+                    <a href="mailto:info@sukoonepakistan.org" class="btn-sm btn-sm-outline">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CONTACT FORM
+    ============================================ -->
+    <section class="form-section" id="contact-form">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                    <h2>Send Us a Message</h2>
+                    <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+                </div>
+
+                <form id="contactForm" action="https://formspree.io/f/mjgqogde" method="POST">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName"><i class="fas fa-user"></i> Your Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="name" placeholder="Enter your name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail"><i class="fas fa-envelope"></i> Your Email <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="email" placeholder="Enter your email" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject"><i class="fas fa-tag"></i> Subject <span class="required">*</span></label>
+                        <select id="contactSubject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Staff Application">Staff Application</option>
+                            <option value="Complaint">Complaint</option>
+                            <option value="Suggestion">Suggestion</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage"><i class="fas fa-comment"></i> Message <span class="required">*</span></label>
+                        <textarea id="contactMessage" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="contactSubmitBtn">
+                        <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                        <span class="spinner"></span>
+                    </button>
+
+                    <div id="contactMessageAlert" class="message-alert">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="msg-text">Message</span>
+                        <button class="msg-close" onclick="this.parentElement.classList.remove('show')">&times;</button>
+                    </div>
+                </form>
+
+                <div style="text-align:center;margin-top:18px;font-size:0.8rem;color:var(--text-muted);">
+                    <i class="fas fa-shield-alt" style="color:var(--gold);"></i>
+                    Your information will only be used to respond to your inquiry.
+                    <br>For urgent matters, please use the <a href="https://discord.gg/3WquAGR6r" target="_blank" style="color:var(--gold);">Discord ticket system</a>.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FAQ SECTION
+    ============================================ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">
+                Frequently Asked <span class="gold">Questions</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Everything you need to know about connecting with Sukoon e Pakistan.
+            </p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I join the community?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You can join by clicking the <strong>"Join Discord"</strong> button above or using the direct link:
+                        <a href="https://discord.gg/3WquAGR6r" target="_blank" style="color:var(--gold);">discord.gg/3WquAGR6r</a>.
+                        Once you're in, introduce yourself in the <strong>#intro</strong> channel!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I open a ticket?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        In the Discord server, navigate to the <strong>#complaints</strong> or <strong>#applications</strong>
+                        channel and click the <strong>"Create Ticket"</strong> button. Follow the prompts and provide
+                        the necessary information. A staff member will assist you shortly.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I apply for staff?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        To apply for staff, open a ticket in the <strong>#applications</strong> channel.
+                        Requirements include: active daily, mature behavior, basic moderation knowledge,
+                        good communication skills, and loyalty to the community. Staff abuse is not tolerated.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What should I do if I have a complaint?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Open a complaint ticket in the <strong>#complaints</strong> channel. Please include:
+                        the username of the person involved, a clear description of what happened, and
+                        any screenshots as proof. The staff team will review and take appropriate action.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I become a partner?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        To partner with Sukoon e Pakistan, open a ticket in the <strong>#partnership</strong>
+                        channel and mention "Partnership" in your ticket. We welcome collaborations that align
+                        with our values of peace, unity, and brotherhood.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I promote my server/content here?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Promotion is only allowed through the <strong>#partnership</strong> channel or via tickets.
+                        Unsolicited promotion in other channels may result in a warning or removal. Please respect
+                        our community guidelines and use the proper channels.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    INFO / PARTNERSHIP / STAFF SECTION
+    ============================================ -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icon"><i class="fas fa-handshake"></i></span>
+                    <h4>Partnerships</h4>
+                    <p>We collaborate with communities that share our values of peace, unity, and respect.
+                    Open a ticket in the Discord server and mention "Partnership".</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-gold">
+                        <i class="fas fa-handshake"></i> Partner With Us
+                    </a>
+                </div>
+
+                <div class="info-card">
+                    <span class="icon"><i class="fas fa-user-tie"></i></span>
+                    <h4>Staff Team</h4>
+                    <p>Our dedicated staff works tirelessly to maintain peace, order, and a welcoming
+                    environment for all members. Interested in joining? Apply via ticket!</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-outline">
+                        <i class="fas fa-user-check"></i> Join Staff
+                    </a>
+                </div>
+
+                <div class="info-card">
+                    <span class="icon"><i class="fas fa-comments"></i></span>
+                    <h4>Community Support</h4>
+                    <p>Need help with anything? Our community is always ready to assist. Reach out in
+                    the general chat or open a ticket for private support.</p>
+                    <a href="https://discord.gg/3WquAGR6r" target="_blank" class="btn-sm btn-sm-outline">
+                        <i class="fas fa-comment"></i> Get Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    SOCIAL LINKS
+    ============================================ -->
+    <section class="social-section">
+        <div class="container">
+            <h2 style="text-align:center;font-size:2rem;font-weight:700;font-family:'Playfair Display',serif;margin-bottom:10px;">
+                Connect With <span class="gold">Us</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p style="text-align:center;color:var(--text-muted);margin-bottom:35px;font-weight:300;">
+                Follow us on social media and stay connected with the community.
+            </p>
+
+            <div class="social-links">
+                <a href="https://discord.gg/3WquAGR6r" target="_blank" class="social-link discord" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SUKOON <span class="gold">PAKISTAN</span></h3>
+                    <p>
+                        A community built on peace, unity, respect, and brotherhood.
+                        Founded by <strong>KHAN</strong> with love for Pakistan and its people.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/3WquAGR6r" target="_blank" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://discord.gg/3WquAGR6r" target="_blank">Discord</a></li>
+                        <li><a href="features.html#voice">Voice</a></li>
+                        <li><a href="features.html#games">Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="features.html#bots"><i class="fas fa-robot"></i> Bots</a></li>
+                        <li><a href="features.html#tickets"><i class="fas fa-ticket"></i> Tickets</a></li>
+                        <li><a href="about.html#staff"><i class="fas fa-users"></i> Staff</a></li>
+                        <li><a href="contact.html"><i class="fas fa-user-plus"></i> Join Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 <strong>Sukoon e Pakistan</strong> —
+                    Built with <span class="heart"><i class="fas fa-heart"></i></span>
+                    for the community by <strong>KHAN</strong> &amp; Team.
+                </p>
+                <p style="margin-top:4px;font-size:0.75rem;letter-spacing:2px;">
+                    Peace · Unity · Respect · Brotherhood PK
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        
+        // =============================================
+        // 1. HAMBURGER MENU TOGGLE
+        // =============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // =============================================
+        // 2. HEADER SCROLL EFFECT
+        // =============================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =============================================
+        // 3. FAQ TOGGLE
+        // =============================================
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('open');
+            });
+        });
+
+        // =============================================
+        // 4. CONTACT FORM HANDLING
+        // =============================================
+        const contactForm = document.getElementById('contactForm');
+        const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+        const contactMessageAlert = document.getElementById('contactMessageAlert');
+        const contactMsgText = contactMessageAlert.querySelector('.msg-text');
+
+        const CONTACT_FORMSPREE_URL = 'https://formspree.io/f/mjgqogde';
+
+        function showContactMessage(type, text) {
+            contactMessageAlert.className = 'message-alert show ' + type;
+            contactMsgText.textContent = text;
+
+            clearTimeout(contactMessageAlert._timeout);
+            contactMessageAlert._timeout = setTimeout(() => {
+                contactMessageAlert.classList.remove('show');
+            }, 6000);
+        }
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Basic validation
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                showContactMessage('error', 'Please fill in all required fields.');
+                return;
+            }
+
+            if (!email.includes('@')) {
+                showContactMessage('error', 'Please enter a valid email address.');
+                return;
+            }
+
+            // Disable button and show loading
+            contactSubmitBtn.disabled = true;
+            contactSubmitBtn.classList.add('loading');
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(CONTACT_FORMSPREE_URL, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Formspree error');
+                }
+
+                showContactMessage('success', '✅ Your message has been sent! We\'ll get back to you soon.');
+                contactForm.reset();
+
+            } catch (error) {
+                showContactMessage('error', '⚠️ There was an error sending your message. Please try again or contact us via Discord.');
+            } finally {
+                contactSubmitBtn.disabled = false;
+                contactSubmitBtn.classList.remove('loading');
+            }
+        });
+
+        // =============================================
+        // 5. SMOOTH SCROLL FOR ANCHOR LINKS
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    if (navMenu && navMenu.classList.contains('open')) {
+                        navMenu.classList.remove('open');
+                        const icon = hamburger?.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                }
+            });
+        });
+
+        // =============================================
+        // 6. REVEAL ANIMATIONS
+        // =============================================
+        const revealItems = document.querySelectorAll('.contact-card, .faq-item, .info-card, .social-link');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealItems.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObserver.observe(el);
+        });
+
+        // =============================================
+        // 7. CONSOLE
+        // =============================================
+        console.log('%c Sukoon e Pakistan — Contact Page ', 'background: #c9a84c; color: #0a0a0a; font-size: 20px; font-weight: bold; padding: 8px 16px; border-radius: 8px;');
+        console.log('%c 📞 Reach out — we\'d love to hear from you!', 'color: #c9a84c; font-size: 14px;');
+        console.log('%c Discord: discord.gg/3WquAGR6r', 'color: #5865F2; font-size: 13px;');
+        console.log('%c Email: info@sukoonepakistan.org', 'color: #aaaaaa; font-size: 13px;');
+        console.log('📌 Pages: Home | About | Features | Directory | Contact');
+        console.log('✅ Contact page fully loaded — All 5 pages complete! 🎉');
+
+        // =============================================
+        // 8. CELEBRATION — ALL PAGES COMPLETE!
+        // =============================================
+        console.log('%c 🎉 ALL 5 PAGES COMPLETE! 🎉 ', 'background: #c9a84c; color: #0a0a0a; font-size: 28px; font-weight: bold; padding: 12px 24px; border-radius: 12px;');
+        console.log('%c 📁 index.html  |  about.html  |  features.html  |  directory.html  |  contact.html', 'color: #c9a84c; font-size: 14px;');
+        console.log('%c 🌟 Sukoon e Pakistan — Peace · Unity · Respect · Brotherhood PK', 'color: #f4f1ea; font-size: 16px; font-weight: bold;');
+    </script>
+
+</body>
+</html>

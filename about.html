@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About • Sukoon e Pakistan</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ============================================
+               CSS RESET & BASE (Dark Theme – Same as Home)
+            ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a84c;
+            --accent-glow: rgba(201, 168, 76, 0.3);
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --text-light: #f4f1ea;
+            --text-muted: #aaaaaa;
+            --border-gold: rgba(201, 168, 76, 0.3);
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section-padding {
+            padding: 90px 0 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 6px;
+            opacity: 0.4;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+        }
+        .btn-gold:hover {
+            background: #dbb95c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        /* ============================================
+               HEADER (Same as Home)
+            ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 18px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .logo-text .gold {
+            color: var(--gold);
+        }
+        .logo-text small {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: var(--transition);
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 60%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-light);
+        }
+
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ============================================
+               PAGE BANNER
+            ============================================ */
+        .page-banner {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 30% 20%, #1a2a1a 0%, #0a0a0a 70%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+            animation: heroGlow 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(5%, -5%) scale(1.1);
+            }
+            100% {
+                transform: translate(-3%, 3%) scale(0.95);
+            }
+        }
+
+        .page-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-banner .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .page-banner .breadcrumb .gold {
+            color: var(--gold);
+        }
+
+        .page-banner h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        .page-banner h1 .gold {
+            color: var(--gold);
+        }
+        .page-banner p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ============================================
+               FOUNDER SECTION
+            ============================================ */
+        .founder-section {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+            background: #1a1a1a;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .founder-image .fallback-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .founder-image .badge-role {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 12px 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            z-index: 2;
+        }
+        .founder-image .badge-role h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .founder-image .badge-role span {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .founder-info h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 5px;
+        }
+        .founder-info h2 .gold {
+            color: var(--gold);
+        }
+        .founder-info .title-role {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .founder-info .title-role i {
+            margin-right: 8px;
+        }
+        .founder-info p {
+            color: #bbb;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .founder-info .founder-quote {
+            background: rgba(201, 168, 76, 0.05);
+            border-left: 3px solid var(--gold);
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--gold-light);
+        }
+        .founder-info .founder-quote i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ============================================
+               STAFF TEAM GRID
+            ============================================ */
+        .staff-section {
+            padding: 80px 0;
+            background: #0a0a0a;
+        }
+
+        .staff-section .staff-category {
+            margin-bottom: 50px;
+        }
+
+        .staff-section .staff-category h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+        .staff-section .staff-category h3 i {
+            color: var(--gold);
+            font-size: 1.6rem;
+        }
+        .staff-section .staff-category h3 .gold-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin-left: 10px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .staff-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+            backdrop-filter: blur(4px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .staff-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .staff-card:hover::before {
+            opacity: 1;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .staff-card .avatar {
+            font-size: 3.2rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .staff-card .avatar-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin: 0 auto 10px;
+            display: block;
+            background: #1a1a1a;
+        }
+
+        .staff-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .staff-card .role {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .staff-card .desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .staff-card .badge-tag {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            background: rgba(201, 168, 76, 0.1);
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        /* ============================================
+               PARTNERS SECTION
+            ============================================ */
+        .partners-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .partners-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .partner-tag {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            color: var(--text-muted);
+            backdrop-filter: blur(4px);
+        }
+
+        .partner-tag:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+            border-color: var(--gold);
+        }
+
+        .partner-tag .icon {
+            margin-right: 6px;
+            opacity: 0.6;
+        }
+
+        /* ============================================
+               MISSION / VISION
+            ============================================ */
+        .mission-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mission-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px 30px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 168, 76, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .mission-card .icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .mission-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .mission-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+               FOOTER (Same as Home)
+            ============================================ */
+        footer {
+            background: #060606;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        footer .footer-brand h3 .gold {
+            color: var(--gold);
+        }
+        footer .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 8px 0 15px;
+            max-width: 300px;
+        }
+
+        footer .footer-brand .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        footer .footer-brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        footer .footer-brand .social-icons a:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        footer .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        footer .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        footer .footer-links ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        footer .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-bottom .heart {
+            color: var(--gold);
+        }
+
+        /* ============================================
+               RESPONSIVE
+            ============================================ */
+        @media (max-width: 992px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .mission-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 4px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                display: block;
+                padding: 10px 16px;
+                text-align: center;
+            }
+
+            .page-banner h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+            .staff-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .founder-info h2 {
+                font-size: 2rem;
+            }
+            .founder-image {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+            .partners-cloud {
+                gap: 10px;
+            }
+            .partner-tag {
+                font-size: 0.75rem;
+                padding: 6px 16px;
+            }
+            .founder-image {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-star-and-crescent"></i></span>
+                <div class="logo-text">
+                    SUKOON <span class="gold">PAKISTAN</span>
+                    <small>Peace · Unity · Brotherhood</small>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+    PAGE BANNER
+    ============================================ -->
+    <section class="page-banner">
+        <div class="container">
+            <p class="breadcrumb"><span class="gold"><i class="fas fa-home"></i></span> / About Us</p>
+            <h1>About <span class="gold">Sukoon</span> e Pakistan</h1>
+            <p>Meet the leadership, staff, and community that make our family special.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOUNDER SECTION
+    ============================================ -->
+    <section class="founder-section" id="founder">
+        <div class="container">
+            <div class="founder-grid">
+                <div class="founder-image">
+                    <!-- PNG Image for Founder -->
+                    <img src="./images/founder.png" alt="KHAN - Founder of Sukoon e Pakistan" onerror="this.style.display='none'; document.querySelector('.fallback-icon').style.display='block';" />
+                    <span class="fallback-icon" style="display:none;"><i class="fas fa-user-tie"></i></span>
+                    <div class="badge-role">
+                        <h4>KHAN</h4>
+                        <span><i class="fas fa-crown"></i> Founder &amp; Visionary</span>
+                    </div>
+                </div>
+                <div class="founder-info">
+                    <span style="color:var(--gold);font-weight:600;letter-spacing:2px;font-size:0.8rem;text-transform:uppercase;">
+                        <i class="fas fa-flag"></i> Our Founder
+                    </span>
+                    <h2><span class="gold">KHAN</span> — سکون</h2>
+                    <p class="title-role"><i class="fas fa-crown"></i> Founder of Sukoon e Pakistan</p>
+                    <p>
+                        <strong>KHAN</strong> is the visionary behind Sukoon e Pakistan. With a deep commitment
+                        to <strong>peace, brotherhood, and loyalty</strong>, KHAN founded this community to
+                        create a space where everyone — regardless of background — can find belonging,
+                        respect, and genuine connection.
+                    </p>
+                    <p>
+                        The name <strong>"Sukoon"</strong> (meaning <em>peace and tranquility</em>) was
+                        chosen deliberately. KHAN envisioned a community free from drama, where Islamic
+                        values of compassion, unity, and mutual respect guide every interaction.
+                    </p>
+                    <div class="founder-quote">
+                        <i class="fas fa-quote-left"></i>
+                        "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — In the name of Allah, the Most Merciful,
+                        the Especially Merciful. This community is built on faith, peace, and love for one another.
+                        Welcome to Sukoon e Pakistan — your home away from home."
+                        <br><span style="display:block;margin-top:8px;font-style:normal;font-weight:500;color:var(--gold);">— KHAN, Founder</span>
+                    </div>
+                    <p>
+                        Under KHAN's leadership, Sukoon e Pakistan has grown into a thriving community
+                        with <strong>150+ members</strong>, active voice chats, gaming nights, and a
+                        strong Islamic foundation. KHAN is personally involved in moderation, events,
+                        and ensuring every member feels valued.
+                    </p>
+                    <a href="contact.html" class="btn btn-gold">
+                        <i class="fas fa-handshake"></i> Join KHAN's Community
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    STAFF TEAM
+    ============================================ -->
+    <section class="staff-section" id="staff">
+        <div class="container">
+            <h2 class="section-title">
+                Our <span class="gold">Leadership</span> Team
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Dedicated staff working tirelessly to maintain peace, order, and a welcoming environment for all.
+            </p>
+
+            <!-- Presidency -->
+            <div class="staff-category">
+                <h3>
+                    <i class="fas fa-user-graduate"></i> Presidency
+                    <span class="gold-line"></span>
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-cog"></i></span>
+                        <h4>Qasim</h4>
+                        <div class="role">Presidency · سکون</div>
+                        <div class="desc">Also known as Roblox. A key leader keeping the community engaged.</div>
+                        <span class="badge-tag">Active Leader</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Head Staff -->
+            <div class="staff-category">
+                <h3>
+                    <i class="fas fa-user-shield"></i> Head Staff
+                    <span class="gold-line"></span>
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-tie"></i></span>
+                        <h4>ciao</h4>
+                        <div class="role">Staff · استاد</div>
+                        <div class="desc">سكون — A dedicated staff member keeping the community in order.</div>
+                        <span class="badge-tag">🛡️ Staff</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-tie"></i></span>
+                        <h4>shapack</h4>
+                        <div class="role">Head Staff · بیت اشاف</div>
+                        <div class="desc">Oversees moderation and ensures rules are followed fairly.</div>
+                        <span class="badge-tag">Senior Staff</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-tie"></i></span>
+                        <h4>Munni</h4>
+                        <div class="role">Staff</div>
+                        <div class="desc">A dedicated staff member keeping the community peaceful and organized.</div>
+                        <span class="badge-tag">🛡️ Staff</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-tie"></i></span>
+                        <h4>callous aka dishwasher</h4>
+                        <div class="role">Head Management</div>
+                        <div class="desc">Dedicated management team member ensuring smooth operations.</div>
+                        <span class="badge-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verified Members -->
+            <div class="staff-category">
+                <h3>
+                    <i class="fas fa-check-circle"></i> Verified Ladies
+                    <span class="gold-line"></span>
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-check"></i></span>
+                        <h4>emaan</h4>
+                        <div class="role">Verified 🐱‍♀️</div>
+                        <div class="desc">No punctuation, just vibes. A beloved member of the community.</div>
+                        <span class="badge-tag">✅ Verified</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-check"></i></span>
+                        <h4>Husna</h4>
+                        <div class="role">Verified · لژکیال</div>
+                        <div class="desc">Trusted member contributing positively to the community.</div>
+                        <span class="badge-tag">✅ Verified</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user-check"></i></span>
+                        <h4>I want Biryani</h4>
+                        <div class="role">Verified</div>
+                        <div class="desc">A beloved member known for great vibes and humor.</div>
+                        <span class="badge-tag">🍛 Biryani Lover</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Roles -->
+            <div class="staff-category">
+                <h3>
+                    <i class="fas fa-heart"></i> Special Roles
+                    <span class="gold-line"></span>
+                </h3>
+                <div class="staff-grid">
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-ring"></i></span>
+                        <h4>Rohan Ki Patni</h4>
+                        <div class="role">رهان کی پاتنی</div>
+                        <div class="desc">A cherished member with a special place in the community's heart.</div>
+                        <span class="badge-tag">❤️ Love</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-star"></i></span>
+                        <h4>ZENIN GOOSE</h4>
+                        <div class="role">زین گووسه</div>
+                        <div class="desc">A vibrant presence spreading positivity and &lt;3 everywhere.</div>
+                        <span class="badge-tag">&lt;3</span>
+                    </div>
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-ring"></i></span>
+                        <h4>myra</h4>
+                        <div class="role">Rohan Ki Patni</div>
+                        <div class="desc">Loves VALORANT and brings great energy to the community.</div>
+                        <span class="badge-tag">🎮 VALORANT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Members -->
+            <div class="staff-category">
+                <h3>
+                    <i class="fas fa-users"></i> Community Members
+                    <span class="gold-line"></span>
+                </h3>
+                <div class="staff-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));">
+
+                    <!-- Member 1 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Sheraz</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>zyron</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Saty</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>AHMAD</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">cursor 24/7</span>
+                    </div>
+
+                    <!-- Member 5 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>ArhamXO</h4>
+                        <div class="role">Minecraft</div>
+                        <span class="badge-tag">⛏️ Gamer</span>
+                    </div>
+
+                    <!-- Member 6 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Cadet Sani</h4>
+                        <div class="role">سكون</div>
+                        <span class="badge-tag">🎖️ Cadet</span>
+                    </div>
+
+                    <!-- Member 7 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Could-Be-Rep...</h4>
+                        <div class="role">VALORANT</div>
+                        <span class="badge-tag">🎮 VALORANT</span>
+                    </div>
+
+                    <!-- Member 8 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>DAREDEVIL</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🔥 Active</span>
+                    </div>
+
+                    <!-- Member 9 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>AURA</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">✨ Active</span>
+                    </div>
+
+                    <!-- Member 10 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Dg</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 11 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>QTC</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 12 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Dr. HOT</h4>
+                        <div class="role">No DMs please</div>
+                        <span class="badge-tag">🔥 Active</span>
+                    </div>
+
+                    <!-- Member 13 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>EasyFive</h4>
+                        <div class="role">جبلية</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 14 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>FATIMA</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 15 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>ASH</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 16 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>IMU</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 17 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>PIWK</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 18 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Joo Si Yoon</h4>
+                        <div class="role">HSR</div>
+                        <div class="desc">Can't wait for Himeko Nova</div>
+                        <span class="badge-tag">🎮 HSR</span>
+                    </div>
+
+                    <!-- Member 19 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Kev</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 20 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>MaFia</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 21 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>MALIK SAAB</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 22 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>muzis guillotine</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 23 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Omg ❤️❤️</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">❤️ Active</span>
+                    </div>
+
+                    <!-- Member 24 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>I simply am not there</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 25 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>pappu bacha</h4>
+                        <div class="role">سكون</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 26 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>PHYSICS FAME</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🔬 Active</span>
+                    </div>
+
+                    <!-- Member 27 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Moggers</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 28 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Rahim @bid</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 29 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>ROBLOX</h4>
+                        <div class="role">Roblox Player</div>
+                        <span class="badge-tag">🎮 Roblox</span>
+                    </div>
+
+                    <!-- Member 30 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Ruru</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 31 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>will you still love me...</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">💭 Active</span>
+                    </div>
+
+                    <!-- Member 32 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Salman Afridi</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 33 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Shao</h4>
+                        <div class="role">goth</div>
+                        <span class="badge-tag">🖤 Goth</span>
+                    </div>
+
+                    <!-- Member 34 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>THE FINALS</h4>
+                        <div class="role">Gamer</div>
+                        <span class="badge-tag">🎮 Gamer</span>
+                    </div>
+
+                    <!-- Member 35 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>sixxx</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 36 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>tabinday</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 37 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>da lion da witch nd...</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🦁 Active</span>
+                    </div>
+
+                    <!-- Member 38 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Taylor Martin</h4>
+                        <div class="role">Creating</div>
+                        <span class="badge-tag">🎨 Creator</span>
+                    </div>
+
+                    <!-- Member 39 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>SENIOR™ · Bad</h4>
+                        <div class="role">/senior</div>
+                        <span class="badge-tag">⭐ Senior</span>
+                    </div>
+
+                    <!-- Member 40 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>SULTAN</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">👑 Active</span>
+                    </div>
+
+                    <!-- Member 41 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Ezzo</h4>
+                        <div class="role">xo</div>
+                        <span class="badge-tag">💋 Active</span>
+                    </div>
+
+                    <!-- Member 42 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>Troye Archer</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                    <!-- Member 43 -->
+                    <div class="staff-card">
+                        <span class="avatar"><i class="fas fa-user"></i></span>
+                        <h4>yusr</h4>
+                        <div class="role">Community Member</div>
+                        <span class="badge-tag">🌟 Active</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    PARTNERS SECTION
+    ============================================ -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <h2 class="section-title">
+                Our <span class="gold">Partners</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                We collaborate with communities and individuals who share our values of peace, unity, and respect.
+            </p>
+
+            <div class="partners-cloud">
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> Axes</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> چرسی</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> Cyber</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> DESI</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> puddle</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> سنا</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> sania</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> CARS</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> dnd</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> yas</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> SOUL</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> afk work</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> Bru...</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> doll</span>
+                <span class="partner-tag"><i class="fas fa-handshake icon"></i> GG/STAYBITTER</span>
+            </div>
+
+            <p style="text-align:center;margin-top:30px;color:var(--text-muted);font-style:italic;font-size:0.95rem;">
+                <i class="fas fa-ellipsis-h" style="color:var(--gold);"></i>
+                And many more amazing partners we're grateful to collaborate with.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+    MISSION / VISION / VALUES
+    ============================================ -->
+    <section class="mission-section" id="mission">
+        <div class="container">
+            <h2 class="section-title">
+                Our <span class="gold">Mission</span> &amp; Values
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                What drives us every day — the principles that make Sukoon e Pakistan a truly special place.
+            </p>
+
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-heart"></i></span>
+                    <h4>Brotherhood</h4>
+                    <p>
+                        We treat every member like family. No matter where you're from, you belong here.
+                        Loyalty and genuine connection are at the core of everything we do.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-peace"></i></span>
+                    <h4>Peace &amp; Tranquility</h4>
+                    <p>
+                        "Sukoon" means peace. We maintain a drama-free, respectful environment
+                        where members can relax, have fun, and be themselves without fear of judgment.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-mosque"></i></span>
+                    <h4>Islamic Foundation</h4>
+                    <p>
+                        Our community is built on Islamic values: compassion, honesty, and respect.
+                        We welcome everyone with Bismillah and the spirit of brotherhood.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-users"></i></span>
+                    <h4>Inclusivity</h4>
+                    <p>
+                        We welcome members from all backgrounds, cultures, and walks of life.
+                        Diversity is our strength, and unity is our goal.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-gamepad"></i></span>
+                    <h4>Fun &amp; Engagement</h4>
+                    <p>
+                        From gaming nights to voice chats, music, and events — we believe in
+                        building connections through shared interests and good times.
+                    </p>
+                </div>
+
+                <div class="mission-card">
+                    <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                    <h4>Safety &amp; Trust</h4>
+                    <p>
+                        Privacy is paramount. We have strict rules against harassment, doxxing,
+                        and inappropriate behavior. Every member deserves to feel safe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CALL TO ACTION
+    ============================================ -->
+    <section style="padding:70px 0;background:linear-gradient(135deg,#0a0a0a 0%,#1a2a1a 100%);border-top:1px solid rgba(201,168,76,0.06);text-align:center;">
+        <div class="container">
+            <h2 style="font-size:2.8rem;font-family:'Playfair Display',serif;font-weight:700;">
+                Become Part of <span class="gold">Our Family</span>
+            </h2>
+            <p style="color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:10px auto 35px;">
+                Join Sukoon e Pakistan today and experience a community like no other.
+                We can't wait to welcome you.
+            </p>
+            <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
+                <a href="contact.html" class="btn btn-gold">
+                    <i class="fas fa-user-plus"></i> Join Now
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fab fa-discord"></i> Join Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SUKOON <span class="gold">PAKISTAN</span></h3>
+                    <p>
+                        A community built on peace, unity, respect, and brotherhood.
+                        Founded by <strong>KHAN</strong> with love for Pakistan and its people.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/3WquAGR6r" target="_blank" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://discord.gg/3WquAGR6r" target="_blank">Discord</a></li>
+                        <li><a href="features.html#rules">Rules</a></li>
+                        <li><a href="about.html#staff">Staff</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="features.html"><i class="fas fa-robot"></i> Bots</a></li>
+                        <li><a href="features.html"><i class="fas fa-music"></i> Music</a></li>
+                        <li><a href="features.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                        <li><a href="features.html"><i class="fas fa-ticket"></i> Tickets</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 <strong>Sukoon e Pakistan</strong> —
+                    Built with <span class="heart"><i class="fas fa-heart"></i></span>
+                    for the community by <strong>KHAN</strong> &amp; Team.
+                </p>
+                <p style="margin-top:4px;font-size:0.75rem;letter-spacing:2px;">
+                    Peace · Unity · Respect · Brotherhood PK
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // =============================================
+        // 1. HAMBURGER MENU TOGGLE
+        // =============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // =============================================
+        // 2. HEADER SCROLL EFFECT
+        // =============================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =============================================
+        // 3. REVEAL ANIMATIONS ON SCROLL
+        // =============================================
+        const revealItems = document.querySelectorAll('.staff-card, .mission-card, .partner-tag');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealItems.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObserver.observe(el);
+        });
+
+        // Founder grid elements
+        document.querySelectorAll('.founder-grid > *').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            obs.observe(el);
+        });
+
+        // =============================================
+        // 4. SMOOTH SCROLL FOR ANCHOR LINKS
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    if (navMenu && navMenu.classList.contains('open')) {
+                        navMenu.classList.remove('open');
+                        const icon = hamburger?.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                }
+            });
+        });
+
+        // =============================================
+        // 5. CONSOLE WELCOME
+        // =============================================
+        console.log('%c Sukoon e Pakistan — About Page ', 'background: #c9a84c; color: #0a0a0a; font-size: 20px; font-weight: bold; padding: 8px 16px; border-radius: 8px;');
+        console.log('%c Meet the team that makes it all happen. ', 'color: #c9a84c; font-size: 14px;');
+        console.log('%c Founder: KHAN | Staff: Qasim, shapack, ciao, & many more.', 'color: #aaaaaa; font-size: 13px;');
+        console.log('📌 Pages: Home | About | Features | Directory | Contact');
+        console.log('✅ About page fully loaded!');
+    </script>
+
+</body>
+</html>

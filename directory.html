@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directory • Sukoon e Pakistan</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ============================================
+               CSS RESET & BASE (Dark Theme)
+            ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a84c;
+            --accent-glow: rgba(201, 168, 76, 0.3);
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --text-light: #f4f1ea;
+            --text-muted: #aaaaaa;
+            --border-gold: rgba(201, 168, 76, 0.3);
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section-padding {
+            padding: 90px 0 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 6px;
+            opacity: 0.4;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+        }
+        .btn-gold:hover {
+            background: #dbb95c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-danger {
+            background: #c0392b;
+            color: #fff;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-danger:hover {
+            background: #e74c3c;
+            transform: scale(1.05);
+        }
+
+        /* ============================================
+               HEADER
+            ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 18px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .logo-text .gold {
+            color: var(--gold);
+        }
+        .logo-text small {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: var(--transition);
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 60%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-light);
+        }
+
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ============================================
+               PAGE BANNER
+            ============================================ */
+        .page-banner {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 30% 20%, #1a2a1a 0%, #0a0a0a 70%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+            animation: heroGlow 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(5%, -5%) scale(1.1);
+            }
+            100% {
+                transform: translate(-3%, 3%) scale(0.95);
+            }
+        }
+
+        .page-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-banner .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .page-banner .breadcrumb .gold {
+            color: var(--gold);
+        }
+
+        .page-banner h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        .page-banner h1 .gold {
+            color: var(--gold);
+        }
+        .page-banner p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ============================================
+               STATS BAR
+            ============================================ */
+        .stats-bar {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .stats-bar .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stats-bar .stat-box .number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stats-bar .stat-box .label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+               SEARCH & FILTER
+            ============================================ */
+        .search-section {
+            padding: 40px 0 20px;
+            background: #0a0a0a;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            background: rgba(26, 26, 26, 0.8);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box .btn-search {
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: none;
+            background: var(--gold);
+            color: #0a0a0a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box .btn-search:hover {
+            background: #dbb95c;
+            transform: scale(1.02);
+        }
+
+        .search-box .btn-clear {
+            padding: 14px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box .btn-clear:hover {
+            border-color: var(--gold);
+            color: var(--text-light);
+        }
+
+        /* ============================================
+               MEMBER DIRECTORY GRID
+            ============================================ */
+        .directory-section {
+            padding: 40px 0 80px;
+            background: #0a0a0a;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px 20px;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .member-card:hover::before {
+            opacity: 1;
+        }
+
+        .member-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .member-card .avatar {
+            font-size: 3.5rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .member-card .member-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .member-card .member-discord {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .member-card .member-details {
+            text-align: left;
+            margin-top: 10px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .member-card .member-details .detail {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-card .member-details .detail i {
+            color: var(--gold);
+            width: 18px;
+            font-size: 0.75rem;
+        }
+
+        .member-card .member-details .detail .value {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .member-card .member-actions {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .member-card .badge-joined {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            background: rgba(201, 168, 76, 0.08);
+            color: var(--gold-light);
+            border: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        /* ============================================
+               EMPTY STATE
+            ============================================ */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state .icon {
+            font-size: 5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+
+        /* ============================================
+               FOOTER
+            ============================================ */
+        footer {
+            background: #060606;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        footer .footer-brand h3 .gold {
+            color: var(--gold);
+        }
+        footer .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 8px 0 15px;
+            max-width: 300px;
+        }
+
+        footer .footer-brand .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        footer .footer-brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        footer .footer-brand .social-icons a:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        footer .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        footer .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        footer .footer-links ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        footer .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-bottom .heart {
+            color: var(--gold);
+        }
+
+        /* ============================================
+               RESPONSIVE
+            ============================================ */
+        @media (max-width: 992px) {
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .stats-bar .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 4px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                display: block;
+                padding: 10px 16px;
+                text-align: center;
+            }
+
+            .page-banner h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .directory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            .stats-bar .stats-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 10px;
+            }
+            .stats-bar .stat-box .number {
+                font-size: 1.8rem;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .search-box input {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+            .directory-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .member-card {
+                padding: 18px 14px;
+            }
+            .member-card .avatar {
+                font-size: 2.5rem;
+            }
+            .member-card .member-name {
+                font-size: 1rem;
+            }
+            .stats-bar .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .search-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box input {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-star-and-crescent"></i></span>
+                <div class="logo-text">
+                    SUKOON <span class="gold">PAKISTAN</span>
+                    <small>Peace · Unity · Brotherhood</small>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="directory.html" class="active">Directory</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+    PAGE BANNER
+    ============================================ -->
+    <section class="page-banner">
+        <div class="container">
+            <p class="breadcrumb"><span class="gold"><i class="fas fa-home"></i></span> / Directory</p>
+            <h1>Member <span class="gold">Directory</span></h1>
+            <p>Meet the amazing individuals who make Sukoon e Pakistan a family.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+    STATS BAR
+    ============================================ -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="number" id="totalMembers">0</span>
+                    <span class="label"><i class="fas fa-users"></i> Total Members</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number" id="activeMembers">0</span>
+                    <span class="label"><i class="fas fa-user-check"></i> Active Members</span>
+                </div>
+                <div class="stat-box">
+                    <span class="number" id="newestMember">-</span>
+                    <span class="label"><i class="fas fa-user-plus"></i> Newest Member</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    SEARCH SECTION
+    ============================================ -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search by name, Discord, or location..." />
+                <button class="btn-search" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                <button class="btn-clear" id="clearBtn"><i class="fas fa-times"></i> Clear</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    DIRECTORY SECTION
+    ============================================ -->
+    <section class="directory-section">
+        <div class="container">
+            <div class="directory-grid" id="memberGrid">
+                <!-- Members will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SUKOON <span class="gold">PAKISTAN</span></h3>
+                    <p>
+                        A community built on peace, unity, respect, and brotherhood.
+                        Founded by <strong>KHAN</strong> with love for Pakistan and its people.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/3WquAGR6r" target="_blank" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://discord.gg/3WquAGR6r" target="_blank">Discord</a></li>
+                        <li><a href="features.html#voice">Voice</a></li>
+                        <li><a href="features.html#games">Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="features.html#bots"><i class="fas fa-robot"></i> Bots</a></li>
+                        <li><a href="features.html#tickets"><i class="fas fa-ticket"></i> Tickets</a></li>
+                        <li><a href="about.html#staff"><i class="fas fa-users"></i> Staff</a></li>
+                        <li><a href="contact.html"><i class="fas fa-user-plus"></i> Join Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 <strong>Sukoon e Pakistan</strong> —
+                    Built with <span class="heart"><i class="fas fa-heart"></i></span>
+                    for the community by <strong>KHAN</strong> &amp; Team.
+                </p>
+                <p style="margin-top:4px;font-size:0.75rem;letter-spacing:2px;">
+                    Peace · Unity · Respect · Brotherhood PK
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        
+        // =============================================
+        // 1. HAMBURGER MENU TOGGLE
+        // =============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // =============================================
+        // 2. HEADER SCROLL EFFECT
+        // =============================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =============================================
+        // 3. MEMBER DIRECTORY RENDERER
+        // =============================================
+        const memberGrid = document.getElementById('memberGrid');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        // Stats elements
+        const totalMembersEl = document.getElementById('totalMembers');
+        const activeMembersEl = document.getElementById('activeMembers');
+        const newestMemberEl = document.getElementById('newestMember');
+
+        // Helper: escape HTML
+        function escapeHtml(text) {
+            if (!text) return 'N/A';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Helper: truncate text
+        function truncate(text, max = 30) {
+            if (!text) return 'N/A';
+            return text.length > max ? text.substring(0, max) + '...' : text;
+        }
+
+        // Get members from localStorage
+        function getMembers() {
+            try {
+                return JSON.parse(localStorage.getItem('sukoonMembers')) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        // Save members to localStorage
+        function saveMembers(members) {
+            localStorage.setItem('sukoonMembers', JSON.stringify(members));
+        }
+
+        // Delete a member by index
+        function deleteMember(index) {
+            if (confirm('Are you sure you want to remove this member from the directory?')) {
+                const members = getMembers();
+                members.splice(index, 1);
+                saveMembers(members);
+                renderDirectory();
+                updateStats();
+            }
+        }
+
+        // Render the directory
+        function renderDirectory(filter = '') {
+            const members = getMembers();
+
+            // Update stats
+            updateStats(members);
+
+            // Filter
+            const query = filter.toLowerCase().trim();
+            let filtered = members;
+            if (query) {
+                filtered = members.filter(m =>
+                    (m.fullName || '').toLowerCase().includes(query) ||
+                    (m.discord || '').toLowerCase().includes(query) ||
+                    (m.location || '').toLowerCase().includes(query) ||
+                    (m.interests || '').toLowerCase().includes(query)
+                );
+            }
+
+            // Clear grid
+            memberGrid.innerHTML = '';
+
+            // If no members
+            if (members.length === 0) {
+                memberGrid.innerHTML = `
+                    <div class="empty-state">
+                        <span class="icon"><i class="fas fa-users-slash"></i></span>
+                        <h3>No Members Yet</h3>
+                        <p>Be the first to join our community directory! Register today and become part of the Sukoon e Pakistan family.</p>
+                        <a href="contact.html" class="btn btn-gold"><i class="fas fa-user-plus"></i> Join Now</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // If no results
+            if (filtered.length === 0) {
+                memberGrid.innerHTML = `
+                    <div class="empty-state">
+                        <span class="icon"><i class="fas fa-search"></i></span>
+                        <h3>No Results Found</h3>
+                        <p>We couldn't find any members matching "<strong>${escapeHtml(query)}</strong>". Try a different search.</p>
+                        <button class="btn btn-outline" onclick="document.getElementById('searchInput').value=''; renderDirectory();">
+                            <i class="fas fa-times"></i> Clear Search
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render each member
+            filtered.forEach((member, index) => {
+                // Get the actual index in the original array for deletion
+                const originalIndex = members.indexOf(member);
+
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+                card.innerHTML = `
+                    <span class="avatar"><i class="fas fa-user-circle"></i></span>
+                    <div class="member-name">${escapeHtml(member.fullName || 'N/A')}</div>
+                    <div class="member-discord"><i class="fab fa-discord" style="color:var(--gold);"></i> ${escapeHtml(member.discord || 'N/A')}</div>
+                    <div class="member-details">
+                        <div class="detail"><i class="fas fa-calendar-alt"></i> Age: <span class="value">${escapeHtml(member.age || 'N/A')}</span></div>
+                        <div class="detail"><i class="fas fa-venus-mars"></i> Gender: <span class="value">${escapeHtml(member.gender || 'N/A')}</span></div>
+                        <div class="detail"><i class="fas fa-map-pin"></i> Location: <span class="value">${escapeHtml(truncate(member.location || 'N/A', 25))}</span></div>
+                        <div class="detail"><i class="fas fa-heart"></i> Interests: <span class="value">${escapeHtml(truncate(member.interests || 'N/A', 30))}</span></div>
+                        ${member.whyJoin ? `<div class="detail"><i class="fas fa-question-circle"></i> Why join: <span class="value">${escapeHtml(truncate(member.whyJoin, 35))}</span></div>` : ''}
+                    </div>
+                    <span class="badge-joined"><i class="fas fa-check-circle"></i> Community Member</span>
+                    <div class="member-actions">
+                        <button class="btn-danger" onclick="deleteMember(${originalIndex})">
+                            <i class="fas fa-trash-alt"></i> Remove
+                        </button>
+                    </div>
+                `;
+
+                memberGrid.appendChild(card);
+
+                // Trigger entrance animation
+                requestAnimationFrame(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Update search input value to match filter
+            if (query) {
+                searchInput.value = query;
+            }
+        }
+
+        // =============================================
+        // 4. UPDATE STATS
+        // =============================================
+        function updateStats(members) {
+            if (!members) members = getMembers();
+
+            // Total members
+            totalMembersEl.textContent = members.length;
+
+            // Active members (simplified: all registered are considered active)
+            activeMembersEl.textContent = members.length;
+
+            // Newest member
+            if (members.length > 0) {
+                const newest = members[members.length - 1];
+                newestMemberEl.textContent = newest.fullName || newest.discord || 'Member';
+            } else {
+                newestMemberEl.textContent = '-';
+            }
+        }
+
+        // =============================================
+        // 5. SEARCH FUNCTIONALITY
+        // =============================================
+        function performSearch() {
+            const query = searchInput.value;
+            renderDirectory(query);
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            renderDirectory();
+            searchInput.focus();
+        });
+
+        // =============================================
+        // 6. INITIAL LOAD
+        // =============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDirectory();
+        });
+
+        // Re-render when coming back from registration page (storage change)
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'sukoonMembers') {
+                renderDirectory();
+            }
+        });
+
+        // Also re-render on page visibility change (user might have registered in another tab)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                renderDirectory();
+            }
+        });
+
+        // =============================================
+        // 7. SMOOTH SCROLL FOR ANCHOR LINKS
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    if (navMenu && navMenu.classList.contains('open')) {
+                        navMenu.classList.remove('open');
+                        const icon = hamburger?.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                }
+            });
+        });
+
+        // =============================================
+        // 8. CONSOLE
+        // =============================================
+        console.log('%c Sukoon e Pakistan — Directory Page ', 'background: #c9a84c; color: #0a0a0a; font-size: 20px; font-weight: bold; padding: 8px 16px; border-radius: 8px;');
+        console.log(`%c 📋 ${getMembers().length} members in the directory.`, 'color: #c9a84c; font-size: 14px;');
+        console.log('%c Search, filter, and connect with your community!', 'color: #aaaaaa; font-size: 13px;');
+        console.log('📌 Pages: Home | About | Features | Directory | Contact');
+        console.log('✅ Directory page fully loaded!');
+    </script>
+
+</body>
+</html>

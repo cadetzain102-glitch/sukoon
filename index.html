@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sukoon e Pakistan – Home</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ============================================
+    SPLASH SCREEN
+    ============================================ */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background: radial-gradient(ellipse at 30% 30%, #1a2a1a 0%, #0a0a0a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    pointer-events: all;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.splash-content {
+    text-align: center;
+    animation: splashFadeIn 1s ease forwards;
+    padding: 20px;
+    max-width: 600px;
+}
+
+@keyframes splashFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.splash-logo {
+    font-size: 4.5rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: block;
+    animation: splashPulse 2s ease-in-out infinite;
+}
+
+@keyframes splashPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 40px rgba(201, 168, 76, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 80px rgba(201, 168, 76, 0.4);
+    }
+}
+
+.splash-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.splash-subtitle {
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 3px;
+    color: var(--text-light);
+    margin-bottom: 2px;
+}
+
+.splash-subtitle .gold {
+    color: var(--gold);
+}
+
+.splash-server {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: -2px;
+}
+
+.splash-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 18px auto 20px;
+    border-radius: 10px;
+}
+
+.splash-quote {
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    padding: 10px 15px;
+    background: rgba(201, 168, 76, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--gold);
+    border-right: 3px solid var(--gold);
+    margin-bottom: 25px;
+}
+
+.splash-quote i {
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 0.8rem;
+    margin: 0 4px;
+}
+
+.splash-quote i:first-child {
+    margin-right: 8px;
+}
+.splash-quote i:last-child {
+    margin-left: 8px;
+}
+
+.splash-loader {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.loader-ring {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid rgba(201, 168, 76, 0.1);
+    border-top: 3px solid var(--gold);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.splash-credit {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.splash-credit .gold {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* Responsive Splash */
+@media (max-width: 768px) {
+    .splash-logo { font-size: 3.2rem; }
+    .splash-title { font-size: 1.2rem; letter-spacing: 3px; }
+    .splash-subtitle { font-size: 2.5rem; }
+    .splash-server { font-size: 0.9rem; }
+    .splash-quote { font-size: 0.95rem; padding: 12px 16px; }
+    .splash-divider { width: 40px; margin: 14px auto 16px; }
+    .loader-ring { width: 35px; height: 35px; }
+    .splash-credit { font-size: 0.7rem; }
+}
+
+@media (max-width: 480px) {
+    .splash-logo { font-size: 2.5rem; }
+    .splash-title { font-size: 1rem; letter-spacing: 2px; }
+    .splash-subtitle { font-size: 1.8rem; }
+    .splash-server { font-size: 0.75rem; }
+    .splash-quote { font-size: 0.8rem; padding: 10px 12px; }
+    .splash-divider { width: 30px; margin: 10px auto 12px; }
+    .loader-ring { width: 30px; height: 30px; border-width: 2px; }
+}
+        /* ============================================
+               CSS RESET & BASE (Dark Theme)
+            ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #c9a84c;
+            --accent-glow: rgba(201, 168, 76, 0.3);
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --text-light: #f4f1ea;
+            --text-muted: #aaaaaa;
+            --border-gold: rgba(201, 168, 76, 0.3);
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section-padding {
+            padding: 90px 0 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        .section-title .gold {
+            color: var(--gold);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-weight: 300;
+        }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--gold);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 6px;
+            opacity: 0.4;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #0a0a0a;
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+        }
+        .btn-gold:hover {
+            background: #dbb95c;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(201, 168, 76, 0.5);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+        }
+
+        /* ============================================
+               HEADER / NAVIGATION (Sticky + Glass)
+            ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 18px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .logo-text .gold {
+            color: var(--gold);
+        }
+        .logo-text small {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            margin-top: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: var(--transition);
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 60%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--text-light);
+        }
+
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ============================================
+               HERO SECTION (Full-screen + Animated)
+            ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 0 60px;
+            background: radial-gradient(ellipse at 30% 20%, #1a2a1a 0%, #0a0a0a 70%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 60% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+            animation: heroGlow 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(5%, -5%) scale(1.1);
+            }
+            100% {
+                transform: translate(-3%, 3%) scale(0.95);
+            }
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 15s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-10vh) scale(1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            padding: 6px 24px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+            text-shadow: 0 0 60px rgba(201, 168, 76, 0.2);
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+            letter-spacing: 2px;
+        }
+
+        .hero .tagline .highlight {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .hero .welcome-message {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            padding: 18px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 15px 0 30px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero .welcome-message i {
+            color: var(--gold);
+            margin: 0 6px;
+        }
+
+        .hero .btn-group {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .hero .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 55px;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .hero .stat-item {
+            text-align: center;
+        }
+
+        .hero .stat-item .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .hero .stat-item .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero .stat-item .label i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+               ABOUT PREVIEW SECTION
+            ============================================ */
+        .about-preview {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            border-top: 1px solid rgba(201, 168, 76, 0.08);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        }
+
+        .about-preview .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-preview .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        .about-preview .about-image .placeholder-img {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #1a2a1a, #0a0a0a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .about-preview .about-image .overlay-text {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            border-left: 3px solid var(--gold);
+        }
+
+        .about-preview .about-text h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        .about-preview .about-text h2 .gold {
+            color: var(--gold);
+        }
+
+        .about-preview .about-text .lead {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .about-preview .about-text p {
+            color: #bbb;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .about-preview .about-text .features-mini {
+            display: flex;
+            gap: 30px;
+            margin: 25px 0 30px;
+            flex-wrap: wrap;
+        }
+
+        .about-preview .about-text .features-mini li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .about-preview .about-text .features-mini li i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        /* ============================================
+               FEATURES / ACTIVITIES GRID
+            ============================================ */
+        .features-section {
+            background: #0a0a0a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 35px 28px;
+            text-align: center;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-card .icon {
+            font-size: 3.2rem;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .feature-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 3px 16px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--gold);
+            border: 1px solid rgba(201, 168, 76, 0.1);
+        }
+
+        /* ============================================
+               RULES PREVIEW (Carousel / Grid)
+            ============================================ */
+        .rules-preview {
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .rule-item {
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 16px;
+            padding: 25px 22px;
+            border-left: 3px solid var(--gold);
+            transition: var(--transition);
+            backdrop-filter: blur(4px);
+        }
+
+        .rule-item:hover {
+            background: rgba(26, 26, 26, 0.9);
+            transform: translateX(6px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .rule-item .rule-icon {
+            color: var(--gold);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .rule-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .rule-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .rules-preview .view-all {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* ============================================
+               GALLERY PREVIEW
+            ============================================ */
+        .gallery-preview {
+            background: #0a0a0a;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .gallery-grid .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            background: #1a1a1a;
+            border: 1px solid rgba(201, 168, 76, 0.06);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-grid .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: rgba(201, 168, 76, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-grid .gallery-item .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+            opacity: 0.2;
+            background: linear-gradient(135deg, #1a2a1a, #0a0a0a);
+        }
+
+        .gallery-grid .gallery-item .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .gallery-grid .gallery-item:hover .blur-overlay {
+            opacity: 0;
+        }
+
+        .gallery-grid .gallery-item .blur-overlay i {
+            color: var(--gold);
+            margin-right: 6px;
+        }
+
+        .gallery-grid .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* ============================================
+               CALL TO ACTION
+            ============================================ */
+        .cta-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid rgba(201, 168, 76, 0.08);
+            border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 60%);
+            animation: heroGlow 25s ease-in-out infinite alternate;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        .cta-section h2 .gold {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+
+        .cta-section .btn-group {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+               FOOTER
+            ============================================ */
+        footer {
+            background: #060606;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(201, 168, 76, 0.06);
+        }
+
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        footer .footer-brand h3 .gold {
+            color: var(--gold);
+        }
+        footer .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 8px 0 15px;
+            max-width: 300px;
+        }
+
+        footer .footer-brand .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        footer .footer-brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        footer .footer-brand .social-icons a:hover {
+            background: var(--gold);
+            color: #0a0a0a;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        footer .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        footer .footer-links ul li {
+            margin-bottom: 8px;
+        }
+        footer .footer-links ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        footer .footer-links ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-bottom .heart {
+            color: var(--gold);
+        }
+
+        /* ============================================
+               RESPONSIVE
+            ============================================ */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            .about-preview .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-grid .gallery-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0 10px;
+                gap: 4px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li a {
+                display: block;
+                padding: 10px 16px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+            .hero .stats-row {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+            .hero .stat-item .number {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-preview .about-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .welcome-message {
+                font-size: 0.8rem;
+                padding: 12px 18px;
+            }
+            .hero .btn-group .btn {
+                padding: 10px 24px;
+                font-size: 0.85rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+    SPLASH SCREEN
+    ============================================ -->
+<div id="splash-screen">
+    <div class="splash-content">
+        <div class="splash-logo">
+            <i class="fas fa-star-and-crescent"></i>
+        </div>
+        <h1 class="splash-title">WELCOME TO</h1>
+        <h2 class="splash-subtitle">SUKOON E<span class="gold"> PAKISTAN</span></h2>
+        <p class="splash-server">Discord Server Website</p>
+        <div class="splash-divider"></div>
+        <p class="splash-quote">
+            <i class="fas fa-quote-left"></i>
+            Being dumb is not cute but playing dumb is actually smart
+            <i class="fas fa-quote-right"></i>
+        </p>
+        <div class="splash-loader">
+            <div class="loader-ring"></div>
+        </div>
+        <p class="splash-credit">Made by <span class="gold">Cadet Xani</span></p>
+    </div>
+</div>
+
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-star-and-crescent"></i></span>
+                <div class="logo-text">
+                    SUKOON <span class="gold">PAKISTAN</span>
+                    <small>Peace · Unity · Brotherhood</small>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+    HERO
+    ============================================ -->
+    <section class="hero" id="home">                
+        <!-- Particles -->
+        <div class="hero-particles" id="particles"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-users"></i> Community Since 2024
+            </div>
+
+            <h1>
+                SUKOON <span class="gold">PAKISTAN</span>
+            </h1>
+
+            <p class="tagline">
+                A <span class="highlight">Community</span>. A <span class="highlight">Family</span>.
+                A Place of <span class="highlight">Segod</span>.
+            </p>
+
+            <div class="welcome-message">
+                <i class="fas fa-hand-peace"></i>
+                CHILL VIBES ONLY · RESPECT EVERYONE · STAY REAL · NO DRAMA ZONE
+                <i class="fas fa-hand-peace"></i>
+            </div>
+
+            <div class="btn-group">
+                <a href="contact.html" class="btn btn-gold">
+                    <i class="fas fa-user-plus"></i> Join Our Community
+                </a>
+                <a href="about.html" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="number" data-count="33">0</span>
+                    <span class="label"><i class="fas fa-bolt"></i> Boosts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" data-count="150">0</span>
+                    <span class="label"><i class="fas fa-users"></i> Members+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" data-count="24">0</span>
+                    <span class="label"><i class="fas fa-headphones"></i> /7 Voice Chats</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number" data-count="10">0</span>
+                    <span class="label"><i class="fas fa-robot"></i> Bots Active</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ============================================
+    ABOUT PREVIEW
+    ============================================ -->
+    <section class="about-preview section-padding" id="about">
+        <div class="container">
+            <div class="grid-2">
+                <div class="about-image">
+                    <img src="images/founder.png" alt="KHAN - Founder of Sukoon e Pakistan" style="width:100%;height:400px;object-fit:cover;display:block;" />
+                    <div class="overlay-text">
+                        <i class="fas fa-crown" style="color:#c9a84c;"></i> Founded by KHAN
+                    </div>
+                </div>
+                </div>
+                <div class="about-text">
+                    <span style="color:var(--gold);font-weight:600;letter-spacing:2px;font-size:0.8rem;text-transform:uppercase;">
+                        <i class="fas fa-flag"></i> Who We Are
+                    </span>
+                    <h2>
+                        Welcome to <span class="gold">Sukoon</span> e Pakistan
+                    </h2>
+                    <p class="lead">
+                        A community built on <strong>peace, brotherhood, and loyalty</strong>.
+                        Inspired by Islamic values and the spirit of unity.
+                    </p>
+                    <p>
+                        Sukoon e Pakistan was founded by <strong>KHAN</strong> with a vision to create
+                        a safe, welcoming space where members from all walks of life can come together,
+                        share their interests, and build lasting friendships.
+                    </p>
+                    <p>
+                        Our name, <strong>"Sukoon"</strong> meaning <em>peace and tranquility</em>,
+                        reflects our commitment to providing a drama-free, respectful environment
+                        where everyone feels valued and heard.
+                    </p>
+                    <ul class="features-mini">
+                        <li><i class="fas fa-check-circle"></i> Islamic Foundation</li>
+                        <li><i class="fas fa-check-circle"></i> Active Voice Chats</li>
+                        <li><i class="fas fa-check-circle"></i> 150+ Members</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Community</li>
+                    </ul>
+                    <a href="about.html" class="btn btn-gold">
+                        <i class="fas fa-users"></i> Meet the Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FEATURES / ACTIVITIES
+    ============================================ -->
+    <section class="features-section section-padding" id="features">
+        <div class="container">
+            <h2 class="section-title">
+                What We <span class="gold">Offer</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                From voice chats to fun games, music, and more — there's always something
+                happening at Sukoon e Pakistan.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-microphone-alt"></i></span>
+                    <h3>Voice Chats</h3>
+                    <p>Jalsa/جلس, Majlis/مجلس, Rhythm, Baithak/بیتھک, Khan's Office, AFK — always active.</p>
+                    <span class="tag">24/7</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-dice"></i></span>
+                    <h3>Fun &amp; Games</h3>
+                    <p>Owo (cowoncy, daily rewards), Truth or Dare, Counting, Levels — endless entertainment.</p>
+                    <span class="tag">Active</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-music"></i></span>
+                    <h3>Music Bots</h3>
+                    <p>Lofi Radio, Rythm — chill vibes and custom playlists in voice channels.</p>
+                    <span class="tag">🎵</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-level-up-alt"></i></span>
+                    <h3>Leveling System</h3>
+                    <p>Members earn XP and level up. Active participation is rewarded and celebrated.</p>
+                    <span class="tag">Noctaly</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-door-open"></i></span>
+                    <h3>Temporary Voice</h3>
+                    <p>Create your own temp voice channel with custom name, limit, privacy, and more.</p>
+                    <span class="tag">TempVoice</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+                    <h3>Ticket System</h3>
+                    <p>Open tickets for complaints, partnerships, or staff applications — organized and fair.</p>
+                    <span class="tag">Ticket Tool</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-user-check"></i></span>
+                    <h3>Staff Applications</h3>
+                    <p>Apply to join the staff team. Requirements: active, mature, respectful, loyal.</p>
+                    <span class="tag">Appy</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-mosque"></i></span>
+                    <h3>Islamic Foundation</h3>
+                    <p>Welcomes with Bismillah, Surah Al-Fatihah, and values of peace and brotherhood.</p>
+                    <span class="tag">بِسْمِ اللَّهِ</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-handshake"></i></span>
+                    <h3>Partnerships</h3>
+                    <p>We collaborate with communities that share our values of peace, unity, and respect.</p>
+                    <span class="tag">Growing</span>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                    <h3>Safe Environment</h3>
+                    <p>Strict rules against harassment, NSFW, and drama. We prioritize your comfort.</p>
+                    <span class="tag">Protected</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    RULES PREVIEW
+    ============================================ -->
+    <section class="rules-preview section-padding" id="rules">
+        <div class="container">
+            <h2 class="section-title">
+                Our <span class="gold">Code of Conduct</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                We believe in peace, unity, respect, and brotherhood. These rules keep our community
+                safe and welcoming for everyone.
+            </p>
+
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-heart"></i></span>
+                    <h4>1. Respect Everyone</h4>
+                    <p>Respect every member regardless of rank, background, or status. No personal attacks.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-peace"></i></span>
+                    <h4>2. Keep It Peaceful</h4>
+                    <p>No drama, attention-seeking, or chaos. This community is built on sukoon and loyalty.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-lock"></i></span>
+                    <h4>3. Privacy Matters</h4>
+                    <p>No leaking private chats, pictures, videos, or personal information of any member.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-comment-slash"></i></span>
+                    <h4>4. No Spamming</h4>
+                    <p>Spamming, flooding chats, or mass mentioning is prohibited. Keep chats clean.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-tag"></i></span>
+                    <h4>5. Use Channels Correctly</h4>
+                    <p>Follow the purpose of each channel to maintain discipline within the server.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                    <h4>6. No Scamming</h4>
+                    <p>Scamming, fake deals, or misleading members results in an instant blacklist or ban.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-ban"></i></span>
+                    <h4>7. No NSFW</h4>
+                    <p>No NSFW, gore, disturbing media, or inappropriate content. Keep it safe for all.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-microphone"></i></span>
+                    <h4>8. Respect Voice Chats</h4>
+                    <p>No mic spamming, loud noises, screaming, or ruining conversations in voice channels.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-user-shield"></i></span>
+                    <h4>9. Respect Staff</h4>
+                    <p>Cooperate with moderation. Handle disagreements calmly through tickets, not public drama.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span class="rule-icon"><i class="fas fa-flag"></i></span>
+                    <h4>10. Loyalty &amp; Respect</h4>
+                    <p>Loyalty and respect are valued more than fake popularity. Negativity is not tolerated.</p>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="features.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-right"></i> Explore Full Features
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    GALLERY PREVIEW
+    ============================================ -->
+    <section class="gallery-preview section-padding" id="gallery">
+        <div class="container">
+            <h2 class="section-title">
+                Community <span class="gold">Gallery</span>
+            </h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                A glimpse into our community — all images are blurred to protect member privacy.
+            </p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <div class="placeholder">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred for Privacy
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="placeholder">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="blur-overlay">
+                        <i class="fas fa-lock"></i> Blurred
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:30px;">
+                <p style="color:var(--text-muted);font-size:0.85rem;">
+                    <i class="fas fa-lock" style="color:var(--gold);"></i>
+                    All images are blurred to protect member privacy. Hover to reveal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CALL TO ACTION
+    ============================================ -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>
+                Ready to Join <span class="gold">Sukoon</span> e Pakistan?
+            </h2>
+            <p>
+                Become part of a growing community that values peace, respect, and brotherhood.
+                Whether you're here for games, music, or meaningful conversations — you're welcome.
+            </p>
+            <div class="btn-group">
+                <a href="contact.html" class="btn btn-gold">
+                    <i class="fas fa-user-plus"></i> Join Now
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fab fa-discord"></i> Join Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SUKOON <span class="gold">PAKISTAN</span></h3>
+                    <p>
+                        A community built on peace, unity, respect, and brotherhood.
+                        Founded by <strong>KHAN</strong> with love for Pakistan and its people.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://discord.gg/3WquAGR6r" target="_blank" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://discord.gg/3WquAGR6r" target="_blank">Discord</a></li>
+                        <li><a href="features.html#rules">Rules</a></li>
+                        <li><a href="about.html#staff">Staff</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Info</h4>
+                    <ul>
+                        <li><a href="features.html"><i class="fas fa-robot"></i> Bots</a></li>
+                        <li><a href="features.html"><i class="fas fa-music"></i> Music</a></li>
+                        <li><a href="features.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                        <li><a href="features.html"><i class="fas fa-ticket"></i> Tickets</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 <strong>Sukoon e Pakistan</strong> —
+                    Built with <span class="heart"><i class="fas fa-heart"></i></span>
+                    for the community by <strong>KHAN</strong> &amp; Team.
+                </p>
+                <p style="margin-top:4px;font-size:0.75rem;letter-spacing:2px;">
+                    Peace · Unity · Respect · Brotherhood PK
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT — Animations, Interactions, Particles
+    ============================================ -->
+    <script>
+// =============================================
+// SPLASH SCREEN – Show Only Once Per Session
+// =============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const splash = document.getElementById('splash-screen');
+    if (!splash) return;
+
+    const key = 'sukoon_splash_shown';
+
+    // Check if splash has been shown in this session
+    let shown = false;
+    try {
+        shown = sessionStorage.getItem(key) === 'true';
+    } catch (e) {}
+
+    if (!shown) {
+        // First time in this session → show splash
+        splash.classList.add('active');
+
+        // Mark as shown
+        try {
+            sessionStorage.setItem(key, 'true');
+        } catch (e) {}
+
+        // Hide after 4 seconds
+        setTimeout(function() {
+            splash.classList.remove('active');
+            splash.classList.add('hidden');
+        }, 4000);
+    } else {
+        // Already shown → ensure hidden
+        splash.classList.add('hidden');
+    }
+});
+
+        // =============================================
+        // 1. PARTICLES GENERATOR
+        // =============================================
+        (function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            const count = 60;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.width = (Math.random() * 4 + 2) + 'px';
+                p.style.height = p.style.width;
+                p.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                p.style.animationDelay = (Math.random() * 15) + 's';
+                p.style.opacity = (Math.random() * 0.4 + 0.1);
+                container.appendChild(p);
+            }
+        })();
+
+        // =============================================
+        // 2. HAMBURGER MENU TOGGLE
+        // =============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('open');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+        }
+
+        // =============================================
+        // 3. HEADER SCROLL EFFECT
+        // =============================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =============================================
+        // 4. COUNTER ANIMATION (Stats)
+        // =============================================
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-item .number[data-count]');
+            if (!counters.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-count'), 10);
+                        let current = 0;
+                        const increment = Math.ceil(target / 40);
+                        const duration = 1500;
+                        const stepTime = Math.floor(duration / 40);
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                el.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                el.textContent = current;
+                            }
+                        }, stepTime);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(c => observer.observe(c));
+        }
+
+        // Run counters after page loads
+        window.addEventListener('load', function() {
+            animateCounters();
+
+            // Set initial text for counters
+            document.querySelectorAll('.stat-item .number[data-count]').forEach(el => {
+                el.textContent = '0';
+            });
+        });
+
+        // =============================================
+        // 5. SMOOTH SCROLL FOR NAV LINKS (anchor links)
+        // =============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const top = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    // Close mobile menu
+                    if (navMenu && navMenu.classList.contains('open')) {
+                        navMenu.classList.remove('open');
+                        const icon = hamburger?.querySelector('i');
+                        if (icon) {
+                            icon.classList.add('fa-bars');
+                            icon.classList.remove('fa-times');
+                        }
+                    }
+                }
+            });
+        });
+
+        // =============================================
+        // 6. REVEAL ANIMATIONS ON SCROLL (Intersection)
+        // =============================================
+        const revealElements = document.querySelectorAll('.feature-card, .rule-item, .gallery-item');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            revealObserver.observe(el);
+        });
+
+        // Also observe the about image and text
+        document.querySelectorAll('.about-preview .grid-2 > *').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            obs.observe(el);
+        });
+
+        // =============================================
+        // 7. CONSOLE WELCOME MESSAGE
+        // =============================================
+        console.log('%c Sukoon e Pakistan ', 'background: #c9a84c; color: #0a0a0a; font-size: 24px; font-weight: bold; padding: 10px 20px; border-radius: 8px;');
+        console.log('%c Peace · Unity · Respect · Brotherhood PK ', 'color: #c9a84c; font-size: 14px; font-weight: 300;');
+        console.log('%c Built with ❤️ for the community by KHAN & Team.', 'color: #aaaaaa; font-size: 13px;');
+        console.log('%c Join us: https://discord.gg/3WquAGR6r', 'color: #5865F2; font-size: 13px;');
+
+        console.log('✅ Home page fully loaded!');
+        console.log('📌 Pages: Home | About | Features | Directory | Contact');
+    </script>
+
+</body>
+</html>
